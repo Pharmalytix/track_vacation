@@ -1,17 +1,28 @@
 ---
-
 title: "track_vacation"
-format: html
+
+format:
+  html:
+    page-layout: full
+    css: styles.css
+    embed-resources: true
+
 runtime: shiny
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
 
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+
 library(shiny)
 library(DT)
 library(lubridate)
@@ -49,7 +60,7 @@ ui <- fluidPage(
   
   # Continue with your layout...
   fluidRow(
-    column(width = 12, DTOutput("vacation_table"))
+    column(width = 12, style = "width: 100%;", DTOutput("vacation_table"))
   ),
   fluidRow(
     column(
@@ -58,10 +69,10 @@ ui <- fluidPage(
       br(),
       
       fluidRow(
-        column(3, uiOutput("employee_selector")),
-        column(3, dateRangeInput("vacation_dates", "📅 Select Vacation Dates")),
-        column(3, br(), actionButton("add_vacation", "➕ Add Vacation")),
-        column(2, br(), downloadButton("download_csv", "Download CSV"))
+        column(3, style = "min-width: 250px;",uiOutput("employee_selector")),
+        column(3, style = "min-width: 250px;",dateRangeInput("vacation_dates", "📅 Select Vacation Dates")),
+        column(3, style = "min-width: 250px;",br(), actionButton("add_vacation", "➕ Add Vacation")),
+        column(2, style = "min-width: 250px;",br(), downloadButton("download_csv", "Download CSV"))
       ),
       br(),
       

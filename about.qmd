@@ -2,8 +2,7 @@
 title: "About"
 ---
 
-About this site
+This site helps you track the vacation of individuals in an interactive way. A place to visualize the vacations, country specific holidays, weekends and plan the project in an effective way.
 
-```{r}
-1 + 1
-```
+
+
